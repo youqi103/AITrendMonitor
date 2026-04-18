@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "effect": "^3.21.0",
+    "prisma": "7.6.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^7.7.0"
+  }
+}

@@ -1,0 +1,200 @@
+@import "tailwindcss";
+
+/* ========== 欧意风格主题变量 ========== */
+:root {
+  --bg-primary: #0c0c0c;
+  --bg-card: rgba(22, 22, 22, 0.9);
+  --border-glow: rgba(45, 105, 255, 0.2);
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --accent-green: #00d68f;
+  --accent-red: #ff4d4f;
+  --accent-yellow: #ffaa33;
+  --accent-blue: #2d69ff;
+  --accent-purple: #722ed1;
+  --gradient-primary: linear-gradient(135deg, #2d69ff 0%, #722ed1 100%);
+  --gradient-secondary: linear-gradient(135deg, #00d68f 0%, #2d69ff 100%);
+}
+
+/* ========== 全局基础样式 ========== */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 数据/数字使用等宽字体 */
+.font-mono-data {
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+}
+
+/* ========== 卡片发光边框动画 ========== */
+@keyframes border-glow {
+  0%, 100% { border-color: rgba(45, 105, 255, 0.2); }
+  50% { border-color: rgba(45, 105, 255, 0.4); }
+}
+
+.card-glow {
+  border: 1px solid var(--border-glow);
+  animation: border-glow 3s ease-in-out infinite;
+  backdrop-filter: blur(10px);
+}
+
+/* ========== 状态灯脉冲动画 ========== */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 6px currentColor; }
+  50% { opacity: 0.6; box-shadow: 0 0 12px currentColor, 0 0 20px currentColor;
+  }
+}
+
+.pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* ========== 热度条渐变（绿→黄→红） ========== */
+.heat-bar {
+  background: linear-gradient(90deg, #00d68f, #ffaa33, #ff4d4f);
+}
+
+/* ========== 滚动条美化 ========== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(45, 105, 255, 0.3);
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(45, 105, 255, 0.5);
+}
+
+/* ========== 霓虹文字效果 ========== */
+.neon-text {
+  text-shadow: 0 0 8px rgba(45, 105, 255, 0.5), 0 0 24px rgba(45, 105, 255, 0.3);
+}
+
+/* ========== 输入框样式覆盖 ========== */
+input, select, textarea {
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  box-shadow: 0 0 0 2px rgba(45, 105, 255, 0.3);
+}
+
+/* ========== 标签过渡动画 ========== */
+.tag-enter {
+  animation: tag-pop 0.3s ease-out;
+}
+
+@keyframes tag-pop {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ========== 渐变背景动画 ========== */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-bg {
+  background: var(--gradient-primary);
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* ========== 卡片悬停效果 ========== */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(45, 105, 255, 0.15);
+}
+
+/* ========== 按钮样式 ========== */
+.btn-primary {
+  background: var(--gradient-primary);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(45, 105, 255, 0.3);
+}
+
+/* ========== 玻璃态效果 ========== */
+.glass-effect {
+  background: rgba(22, 22, 22, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ========== 开关按钮样式 ========== */
+.toggle-container {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.toggle-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--text-secondary);
+  transition: .3s;
+  border-radius: 20px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: .3s;
+  border-radius: 50%;
+}
+
+.toggle-input:checked + .toggle-slider {
+  background-color: var(--accent-green);
+}
+
+.toggle-input:checked + .toggle-slider:before {
+  transform: translateX(20px);
+}
