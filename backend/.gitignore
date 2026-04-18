@@ -1,0 +1,49 @@
+# 忽略 node_modules 目录
+node_modules
+
+# 忽略环境变量文件
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 忽略数据库文件
+*.db
+*.sqlite
+*.mysql
+
+# 忽略构建输出目录
+dist/
+
+# 忽略日志文件
+*.log
+logs/
+
+# 忽略编辑器配置
+.vscode/
+.idea/
+
+# 忽略临时文件
+*.tmp
+*.temp
+
+# 忽略操作系统文件
+Thumbs.db
+.DS_Store
+
+# 忽略包管理器日志
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# 忽略测试覆盖率报告
+coverage/
+
+# 忽略 Prisma 生成的客户端
+prisma/client/
+
+# 忽略 TypeScript 编译缓存
+*.tsbuildinfo

@@ -1,0 +1,29 @@
+# AI 代理/技能相关配置
+.agents/
+.claude/
+.trae/
+# 根目录锁文件（子项目各自管理）
+# pnpm-lock.yaml
+# package-lock.json
+
+# 开发数据库
+*.db
+*.sqlite
+
+# 技能锁定文件
+skills-lock.json
+
+# 临时文件
+*.tmp
+*.temp
+*.log
+
+# 操作系统文件
+Thumbs.db
+.DS_Store
+
+# 编辑器配置
+.vscode/
+.idea/
+*.suo
+*.ntvs*
